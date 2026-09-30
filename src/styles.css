@@ -106,6 +106,21 @@ summary.union .nm {
     color: var(--on-gold)
 }
 
+.ff {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 4
+}
+
+@media print {
+    .ff {
+        display: none !important
+    }
+}
+
 /* ───────────── Base ───────────── */
 body {
     margin: 0;

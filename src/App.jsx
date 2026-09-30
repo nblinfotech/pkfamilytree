@@ -108,6 +108,74 @@ function Print({ n, d }) {
   </div>;
 }
 
+function Fireflies() {
+  const ref = useRef();
+  useEffect(() => {
+    if (matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+    const c = ref.current, x = c.getContext('2d');
+    let W, H, raf, ff = [], m = { x: -999, y: -999, on: false };
+    const isDark = () => { const t = document.documentElement.dataset.theme; return t === 'dark' || (t !== 'light' && matchMedia('(prefers-color-scheme:dark)').matches) };
+    const spawn = (px, py, tmp) => ({
+      x: px ?? Math.random() * W, y: py ?? Math.random() * H, vx: 0, vy: 0, a: Math.random() * 6.28,
+      ph: Math.random() * 6.28, sp: .6 + Math.random() * .8, r: 1.1 + Math.random() * 1.5, life: 1, tmp
+    });
+    const size = () => {
+      const dpr = Math.min(devicePixelRatio || 1, 2); W = innerWidth; H = innerHeight;
+      c.width = W * dpr; c.height = H * dpr; x.setTransform(dpr, 0, 0, dpr, 0, 0);
+      const n = Math.round(Math.min(46, Math.max(16, W * H / 26000)));
+      const base = ff.filter(f => !f.tmp);
+      while (base.length < n) base.push(spawn());
+      ff = base.slice(0, n).concat(ff.filter(f => f.tmp));
+    };
+    const move = e => { m.x = e.clientX; m.y = e.clientY; m.on = true };
+    const leave = () => { m.on = false };
+    const down = e => {
+      ff.forEach(f => {
+        const dx = f.x - e.clientX, dy = f.y - e.clientY, d = Math.hypot(dx, dy);
+        if (d < 240 && d > 1) { f.vx += dx / d * 5; f.vy += dy / d * 5 }
+      });
+      for (let i = 0; i < 7 && ff.length < 90; i++) {
+        const s = spawn(e.clientX, e.clientY, true), a = Math.random() * 6.28, v = 1.5 + Math.random() * 2.5;
+        s.vx = Math.cos(a) * v; s.vy = Math.sin(a) * v; s.r = .9 + Math.random() * .9; ff.push(s)
+      }
+    };
+    const tick = t => {
+      x.clearRect(0, 0, W, H);
+      const d = isDark(), col = d ? '255,226,130' : '214,150,30';
+      x.globalCompositeOperation = d ? 'lighter' : 'source-over';
+      ff = ff.filter(f => f.life > 0);
+      ff.forEach(f => {
+        f.a += (Math.random() - .5) * .3;
+        f.vx += Math.cos(f.a) * .02 * f.sp; f.vy += Math.sin(f.a) * .02 * f.sp - .002;
+        if (m.on) {
+          const dx = m.x - f.x, dy = m.y - f.y, dist = Math.hypot(dx, dy);
+          if (dist < 200 && dist > 1) { const k = dist > 60 ? .05 : -.07; f.vx += dx / dist * k; f.vy += dy / dist * k }
+        }
+        f.vx *= .97; f.vy *= .97;
+        const sp = Math.hypot(f.vx, f.vy); if (sp > 4) { f.vx *= 4 / sp; f.vy *= 4 / sp }
+        f.x += f.vx; f.y += f.vy;
+        if (f.x < -30) f.x = W + 30; else if (f.x > W + 30) f.x = -30;
+        if (f.y < -30) f.y = H + 30; else if (f.y > H + 30) f.y = -30;
+        if (f.tmp) f.life -= .012;
+        const glow = .5 + .5 * Math.sin(t / (520 / f.sp) + f.ph), R = f.r * (5 + glow * 5) * (f.tmp ? 1 : 1),
+          al = glow * f.life * (d ? 1 : .8);
+        const g = x.createRadialGradient(f.x, f.y, 0, f.x, f.y, R);
+        g.addColorStop(0, `rgba(${col},${.95 * al})`); g.addColorStop(.3, `rgba(${col},${.32 * al})`); g.addColorStop(1, `rgba(${col},0)`);
+        x.fillStyle = g; x.beginPath(); x.arc(f.x, f.y, R, 0, 6.283); x.fill();
+      });
+      raf = requestAnimationFrame(tick);
+    };
+    size(); raf = requestAnimationFrame(tick);
+    addEventListener('resize', size); addEventListener('pointermove', move);
+    addEventListener('pointerdown', down); document.addEventListener('pointerleave', leave);
+    return () => {
+      cancelAnimationFrame(raf); removeEventListener('resize', size); removeEventListener('pointermove', move);
+      removeEventListener('pointerdown', down); document.removeEventListener('pointerleave', leave)
+    };
+  }, []);
+  return <canvas ref={ref} className="ff" aria-hidden="true" />;
+}
+
 export default function App() {
   const [tab, setTab] = useState(0), [q, setQ] = useState(''), [pr, setPr] = useState(null), ref = useRef();
   const v = q.trim().toLowerCase();
@@ -128,6 +196,7 @@ export default function App() {
   const stats = [['Descendants', root.k.reduce((a, n) => a + cnt(n), 0)], ['Generations', Math.max(...root.k.map(gen)) + 1], ['Branches', root.k.length]];
 
   return <QCtx.Provider value={v}><ExportCtx.Provider value={(n, d) => setPr({ n, d })}>
+    <Fireflies />
     <div className="screen">
       <div className="hero"><small>THE DESCENDANTS OF</small><h1>Payitha &amp; Umayya</h1><div className="orn">❦ ❦ ❦</div>
         <div className="stats">{stats.map(([l, n]) => <div key={l}><b>{n}</b><span>{l}</span></div>)}</div></div>
