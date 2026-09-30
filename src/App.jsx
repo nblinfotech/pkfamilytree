@@ -9,8 +9,11 @@ const Mark = ({ t }) => {
   const v = useContext(QCtx), i = v ? t.toLowerCase().indexOf(v) : -1;
   return i < 0 ? <Late t={t} /> : <><Late t={t.slice(0, i)} /><mark className="hit"><Late t={t.slice(i, i + v.length)} /></mark><Late t={t.slice(i + v.length)} /></>
 };
+const C = ['#d9a441', '#2f9e7a', '#e07a6e', '#5b8ae0', '#a066e0', '#e0a35b'];
 const Av = ({ a, b, g }) => <span className="av2"><i style={{ '--g': G[g % 6] }}>{ini(a)}</i>{b && <i className="s" style={{ '--g': G[(g + 1) % 6] }}>{ini(b)}</i>}</span>;
-const Leaves = ({ l, d }) => l.map((x, i) => <li className="leaf" key={i}><span className="chip"><i style={{ '--g': G[d % 6] }}>{ini(x)}</i><b><Mark t={x} /></b></span></li>);
+const Leaves = ({ l, d }) => l.map((x, i) => <li className="leaf" key={i}><span className="chip" style={{ '--g': G[d % 6], '--c': C[d % 6] }}><i>{ini(x)}</i><b><Mark t={x} /></b></span></li>);
+
+
 
 function Union({ u, d, all, p }) {
   const v = useContext(QCtx), c = u.k.reduce((s, x) => s + 1 + cnt(x), 0), open = all || v || d < 1;
@@ -26,7 +29,7 @@ function Node({ n, d, all }) {
   const exp = useContext(ExportCtx), v = useContext(QCtx), [a, b0] = sp(n.t), has = n.k.length || n.l.length,
     g = unions(n), b = b0 || g.map(x => x.u).join(' & ');
   const head = (
-    <summary className={has ? '' : 'nokids'} style={has ? null : { cursor: 'default' }}>
+    <summary className={has ? '' : 'nokids'} style={has ? null : { cursor: 'default', '--c': C[d % 6] }}>
       <Av a={a} b={b} g={d} />
       <span className="tx"><span className="nm"><Mark t={a} /></span>{b && <small className="sp">♥ <Mark t={b} /></small>}</span>
       {has && <em className="cnt">{n._c ?? cnt(n)}</em>}
@@ -98,7 +101,7 @@ function Print({ n, d }) {
         const x = X[it.d], y = it.y - it.h / 2;
         return <g key={i}>
           <rect x={x} y={y} width={it.w} height={it.h} rx="8"
-            fill={it.leaf ? '#fff' : FILL[it.d % 6]} fillOpacity={it.leaf ? 1 : .55}
+            fill={FILL[it.d % 6]} fillOpacity={it.leaf ? .3 : .55}
             stroke={it.leaf ? '#b9ab86' : FILL[it.d % 6]} strokeDasharray={it.leaf ? '3 3' : null} />
           {it.lines.map((s, k) => <text key={k} x={x + 12} y={y + PAD + k * LH + 11}
             fontSize={it.leaf ? 10.5 : 12} fontWeight={it.leaf ? 400 : 600} fill="#22302a"><LateSvg s={s} /></text>)}
