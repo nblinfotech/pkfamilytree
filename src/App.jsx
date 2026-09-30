@@ -198,7 +198,7 @@ export default function App() {
   return <QCtx.Provider value={v}><ExportCtx.Provider value={(n, d) => setPr({ n, d })}>
     <Fireflies />
     <div className="screen">
-      <div className="hero"><small>THE DESCENDANTS OF</small><h1>Payitha &amp; Umayya</h1><div className="orn">❦ ❦ ❦</div>
+      <div className="hero"><small>THE DESCENDANTS OF</small><h1>Pallikandy</h1><div className="orn">❦ ❦ ❦</div>
         <div className="stats">{stats.map(([l, n]) => <div key={l}><b>{n}</b><span>{l}</span></div>)}</div></div>
       <div className="bar">
         <div className="tabs">{T.map((x, i) => <button key={i} className={i === cur ? 'on' : ''} onClick={() => setTab(i)}>{x}</button>)}</div>
