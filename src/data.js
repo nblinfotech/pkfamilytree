@@ -2,7 +2,7 @@
 export const D = `Payitha & Savaan
 .Kunhami
 ..@Moidu
-..*Aysha & *Ibrahim
+..Aysha & Ibrahim
 ...Riyas & Sulaikha
 ....Raasha & Rafnas
 .....~Aliya,Aalam
@@ -26,7 +26,7 @@ export const D = `Payitha & Savaan
 ...Shahana & Shafeel
 ....~Shaza,Shahzin,Asna,Shizan
 ..@Aabu
-..Sulaikha & *Muhammed
+..Sulaikha & Muhammed
 ...Nafis & Shafeena
 ....~Rayyan,Thahani,Khadeeja
 ...Sumayya & Rameez
@@ -41,9 +41,9 @@ export const D = `Payitha & Savaan
 ...Roshi & Samad
 ....~Emir Zaad
 ...~Razam
-..*Abobacker & Shuhaiba
+..Abobacker & Shuhaiba
 ...~Sahad,Siyad,Nuzha
-.*Soopy & Ruqiya
+.Soopy & Ruqiya
 ..Saleem & Haseena
 ...Safhana & Savad
 ....~Ayhan,Kiyaan
@@ -51,55 +51,9 @@ export const D = `Payitha & Savaan
 ....~Hakib
 ..Sajeer & Ibthisam
 ...~Hiba Fathima,Muhammed,Aysha Sajeer
-*Umayya & *Kuttiyali
-.*Assoo & *Asiya
-..Shareefa & Qadar
-...Koulath & Hashim
-....Safan & Zahra
-.....~Henza Ayzal
-....Sahal & Kadheeja
-....~Sahd,Shana
-...Dhasthakeer & Mafeedha
-....~Fathima Nada
-...Arshad & Rahmath
-....~Afnan,Adil
-...Shakeel & Shafeena
-....~Yahya
-..Shamsudheen & Afsath
-..Najma & Abdurahman
-...Jafar & Nafsi
-....~Nourin,Shaanu,Naja
-...Jaseela & Sajeer
-....~Shinu,Finsha
-...Jasmine & Aneesh
-....~Anasmi,Anzella,Anmilana
-..Bushra & Abooty
-...Thafseena & Shamseer
-....~Thamanna,Riya,Minha
-.*Nabeesu & *Abdu
-..Jameela
-..Asiya & Abdurrahman
-...Safeera & Basheer
-...Basim & Zainab
-....~Zoya
-...Salfeela & Rafi
-....Roosfidha & Haneef
-.....~Henza
-....~Fathima Amina
-...Shaheera & Raheem
-....~Hiba,Minha
-...Sajila & Sameer
-....Safna & Shihas
-....~Shamna,Shaziya,Saarah
-..Hamsa & Sulaikha
-..*Abdurrahman & Sajida
-...Shanima & *Ansari
-....~Selha,Nouman,Omar
-...Shahala & Shamseer
-....~Bilal,Ruzan,Dua
-.*Moidu
-..@*Khachu
-..*Pathooty & *Ummerkuty
+Umayya & Kuttiyali
+.Khachu & Moidu
+..Pathooty & Ummerkuty
 ...Nasir & Zareena
 ....Hashir & Ratheeba
 .....~Ezwah,Hazirah
@@ -115,14 +69,14 @@ export const D = `Payitha & Savaan
 ....Thanheema & Rayees
 .....~Mehrish,Ezlyn
 ....Majfina & Hirosh
-..*Saru & *Mammu
+..Saru & Mammu
 ...Farooque & Waheeda
 ....~Faseeh,Faizam
 ....Fasna & Ijlan
 .....~Rabel,Aleyna
-..*Shafi
-..@*Maryam
-..*Haneefa & Shareefa
+..Shafi
+.Maryam & Moidu
+..Haneefa & Shareefa
 ...Sharmina & Shamsheer
 ....Riba & Farhan
 .....~Zenha,Ilan
@@ -135,12 +89,12 @@ export const D = `Payitha & Savaan
 ...Thasleem & Wafa
 ...Shaziya & Fajish
 ....~Keyan,Arham,Rua
-..*Soudha & *Kunhimoidu
+..Soudha & Kunhimoidu
 ...Noushad & Benazir
 ....Fidha & Irfan
 .....~Ewaan
 ....~Azeem Shan,Fanzeem
-...*Shabana
+...Shabana
 ...Shahanas & Lirar
 ....Sijah & Shana
 ....Salwa & Saneej
@@ -173,7 +127,52 @@ export const D = `Payitha & Savaan
 ....~Ahyan,Aamina,Ameekha
 ...Fahima & Shanid
 ....~Salin
-.*Aysha & *Abuhaji
+.Assoo & Asiya
+..Shareefa & Qadar
+...Koulath & Hashim
+....Safan & Zahra
+.....~Henza Ayzal
+....Sahal & Kadheeja
+....~Sahd,Shana
+...Dhasthakeer & Mafeedha
+....~Fathima Nada
+...Arshad & Rahmath
+....~Afnan,Adil
+...Shakeel & Shafeena
+....~Yahya
+..Shamsudheen & Afsath
+..Najma & Abdurahman
+...Jafar & Nafsi
+....~Nourin,Shaanu,Naja
+...Jaseela & Sajeer
+....~Shinu,Finsha
+...Jasmine & Aneesh
+....~Anasmi,Anzella,Anmilana
+..Bushra & Abooty
+...Thafseena & Shamseer
+....~Thamanna,Riya,Minha
+.Nabeesu & Abdu
+..Jameela
+..Asiya & Abdurrahman
+...Safeera & Basheer
+...Basim & Zainab
+....~Zoya
+...Salfeela & Rafi
+....Roosfidha & Haneef
+.....~Henza
+....~Fathima Amina
+...Shaheera & Raheem
+....~Hiba,Minha
+...Sajila & Sameer
+....Safna & Shihas
+....~Shamna,Shaziya,Saarah
+..Hamsa & Sulaikha
+..Abdurrahman & Sajida
+...Shanima & Ansari
+....~Selha,Nouman,Omar
+...Shahala & Shamseer
+....~Bilal,Ruzan,Dua
+.Aysha & Abuhaji
 ..Muhammed & Aathiqa
 ...Sadiq & Safala
 ....~Ameen,Afra,Ayan,Nuha
@@ -226,5 +225,5 @@ export const D = `Payitha & Savaan
 ...~Hiba
 ..Aarifa & Majeed
 ...~Fathima,Jaseel,Jasna
-.*Kunhikadeesu
-..~*Mammooty`;
+.Kunhikadeesu
+..~Mammooty`;
