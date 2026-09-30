@@ -74,8 +74,8 @@ Umayya & Kuttiyali
 ....~Faseeh,Faizam
 ....Fasna & Ijlan
 .....~Rabel,Aleyna
-..Shafi
 .Maryam & Moidu
+..Shafi
 ..Haneefa & Shareefa
 ...Sharmina & Shamsheer
 ....Riba & Farhan
