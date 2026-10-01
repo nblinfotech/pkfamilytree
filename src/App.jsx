@@ -26,21 +26,31 @@ function Union({ u, d, all, p }) {
 }
 
 function Node({ n, d, all }) {
-  const exp = useContext(ExportCtx), v = useContext(QCtx), [a, b0] = sp(n.t), has = n.k.length || n.l.length,
-    g = unions(n), b = b0 || g.map(x => x.u).join(' & ');
+  const exp = useContext(ExportCtx), v = useContext(QCtx), parts = n.t.split(' & '),
+    [a, b0] = sp(n.t), has = n.k.length || n.l.length, g = unions(n),
+    multi = parts.length > 2,                       // Khachu & Moidu & Maryam
+    b = b0 || g.map(x => x.u).join(' & '),
+    hub = multi ? parts[1] : a;                     // the shared husband
   const head = (
     <summary className={has ? '' : 'nokids'} style={has ? null : { cursor: 'default', '--c': C[d % 6] }}>
       <Av a={a} b={b} g={d} />
-      <span className="tx"><span className="nm"><Mark t={a} /></span>{b && <small className="sp">♥ <Mark t={b} /></small>}</span>
-      {has && <em className="cnt">{n._c ?? cnt(n)}</em>}
-      {has && !all && <button className="pdf" title={`Export generation ${d + 2} branch to PDF`}
+      <span className="tx">
+        <span className="nm">
+          {multi
+            ? parts.map((x, i) => <span key={i}>{i > 0 && <span style={{ color: 'var(--gold)' }}> ♥ </span>}<Mark t={x} /></span>)
+            : <Mark t={a} />}
+        </span>
+        {!multi && b && <small className="sp">♥ <Mark t={b} /></small>}
+      </span>
+      {!!has && <em className="cnt">{n._c ?? cnt(n)}</em>}
+      {!!has && !all && <button className="pdf" title={`Export generation ${d + 2} branch to PDF`}
         onClick={e => { e.preventDefault(); e.stopPropagation(); exp(n._o || n, d) }}>⤓ PDF</button>}
     </summary>);
   if (!has) return <li>{head}</li>;
   const open = all || (v ? !!(n._a || n._m) : d < 1);
   return <li><details open={open}>{head}<ul>
     {n.k.filter(x => !x.u).map((x, i) => <Node key={i} n={x} d={d + 1} all={all} />)}
-    {g.map(u => <Union key={u.u} u={u} d={d} all={all} p={a} />)}
+    {g.map(u => <Union key={u.u} u={u} d={d} all={all} p={hub} />)}
     <Leaves l={n.l} d={d + 1} /></ul></details></li>;
 }
 
@@ -89,7 +99,7 @@ function Print({ n, d }) {
     <svg viewBox={`0 0 ${width} ${H}`} preserveAspectRatio="xMidYMin meet"
       fontFamily="Poppins,system-ui,sans-serif">
       <text x="20" y="28" fontSize="20" fontWeight="700" fill="#22302a"
-        fontFamily="'Playfair Display',Georgia,serif">{a}{b ? ` & ${b}` : ''}</text>
+        fontFamily="'Playfair Display',Georgia,serif">{a}{b ? ` & ${b.replace(/ ♥ /g, ' & ')}` : ''}</text>
       <text x="20" y="46" fontSize="11" fill="#75806f">
         Generation {d + 2} · {cnt(n)} descendants · {gen(n)} generations</text>
       {all.map((it, i) => it.kids.map((k, j) => {

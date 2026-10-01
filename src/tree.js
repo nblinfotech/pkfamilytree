@@ -9,7 +9,7 @@ D.split('\n').forEach(s => {
 export const ini = s => s.replace(/^Late /, '')[0];
 export const cnt = n => n.l.length + n.k.reduce((a, c) => a + 1 + cnt(c), 0);
 export const gen = n => 1 + Math.max(n.l.length ? 1 : 0, ...n.k.map(gen), 0);
-export const sp = t => t.split(' & ');
+export const sp = t => { const p = t.split(' & '); return [p[0], p.slice(1).join(' ♥ ')] };
 // groups a person's children by the husband/wife they had them with
 export const unions = n => {
   const g = [];

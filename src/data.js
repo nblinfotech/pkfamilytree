@@ -32,7 +32,7 @@ export const D = `Payitha & Savaan
 ...Sumayya & Rameez
 ....Ramsina & Ajmal
 .....~Ayzal
-....~Radi,Rani,A. Bourrahman,Ibrahim
+....~Radi,Rani,Abdurrahman,Ibrahim
 ...Salwa & Ali Azhar
 ....~Aiza,Azra,Atheeb
 ...Fahad & Sharmina
@@ -49,10 +49,12 @@ export const D = `Payitha & Savaan
 ....~Ayhan,Kiyaan
 ...Safreena & Nishan
 ....~Hakib
+...fidha
 ..Sajeer & Ibthisam
 ...~Hiba Fathima,Muhammed,Aysha Sajeer
 Umayya & Kuttiyali
-.Khachu & Moidu
+.Khachu & Moidu & Maryam
+..@Khachu
 ..Pathooty & Ummerkuty
 ...Nasir & Zareena
 ....Hashir & Ratheeba
@@ -74,12 +76,12 @@ Umayya & Kuttiyali
 ....~Faseeh,Faizam
 ....Fasna & Ijlan
 .....~Rabel,Aleyna
-.Maryam & Moidu
+..@Maryam
 ..Shafi
 ..Haneefa & Shareefa
 ...Sharmina & Shamsheer
 ....Riba & Farhan
-.....~Zenha,Ilan
+....~Zenha,Ilan
 ...Thanveer & Zaheema
 ....~Hawwa,Layya
 ...Thasneer & Rabeena
@@ -98,17 +100,18 @@ Umayya & Kuttiyali
 ...Shahanas & Lirar
 ....Sijah & Shana
 ....Salwa & Saneej
-.....~Muizz,Saneeh
+.....~Muizz
+....Saneeh
 ...Hafsath & Shukoor
 ....Rizwa & Sharbin
-.....~Aysha
+....~Aysha
 ...Farshad & Shahana
 ....~Hifza,Haya
 ..Ramla & Aboobacker
 ...Safar & Rafna
 ....~Liyana,Muhammed,Sara,Abdullah
 ...Rafi & Hasna
-....~Maryam,Mehwish,Rayan
+....~Maryam Mehwish,Rayan
 ...Safreena & Faisal
 ....~Haniya,Fezmin,Sehrish,Yazdan
 ...Rafseena & Nabeel
@@ -147,7 +150,7 @@ Umayya & Kuttiyali
 ...Jaseela & Sajeer
 ....~Shinu,Finsha
 ...Jasmine & Aneesh
-....~Anasmi,Anzella,Anmilana
+....~An asmi,An zella,An milana
 ..Bushra & Abooty
 ...Thafseena & Shamseer
 ....~Thamanna,Riya,Minha
@@ -155,12 +158,13 @@ Umayya & Kuttiyali
 ..Jameela
 ..Asiya & Abdurrahman
 ...Safeera & Basheer
-...Basim & Zainab
+....Basim & Zainab
+....~Aysha,Sara
 ....~Zoya
-...Salfeela & Rafi
+...Saleela & Rafi
 ....Roosfidha & Haneef
 .....~Henza
-....~Fathima Amina
+....~Fathima,Amina
 ...Shaheera & Raheem
 ....~Hiba,Minha
 ...Sajila & Sameer
@@ -180,7 +184,7 @@ Umayya & Kuttiyali
 ....~Bilal,Salah
 ...Sajina & Sidhiq
 ....Aysha & Sabir
-....~Muhammed Amina
+....~Muhammed,Amina
 ..Ali & Ruqiya
 ...Jaffar & Rasmina
 ....~Zaan,Zehran,Zahid,Izza
@@ -192,14 +196,14 @@ Umayya & Kuttiyali
 ....~Faizan,Fathima
 ..Nafeesa & Abdullah
 ...Rasheeda & Basheer
-...Firos & Sufaira
-....~Zohan
+....Firos & Sufaira
+....~Zohan,Pachu,Shana
 ...Sameera & Mammooty
-...Sahala & Afsal
-....~Dua
+....Sahala & Afsal
+....~Dua,Safala
 ...Shafeena & Naser
+....Adeeba & Nameer
 ....~Hadi
-...Adeeba & Nameer
 ...Shuhaib & Aarifa
 ....~Muhammed,Aysha
 ..Mustafa & Ruqiya
@@ -209,21 +213,23 @@ Umayya & Kuttiyali
 ....~Zain,Eshan
 ..Basheer & Shajira
 ...Shahana & Safwan
-....~Ameen,Minan
+...~Ameen,Minan
 ..Raheem & Hajara
 ...Jouhar & Shamna
 ...Rahna & Sinan
-....~Rihan
+...~Rihan
 ..Asraf & Naseela
 ...~Zain,Zaman,Aysha,Maryam
 ..Zubaida & Musthafa
 ...Zaki & Sananaz
 ....~Zoya
 ...Maha & Abilash
-....~Zuni,Zahi
+....~Zuni
+...Zahi
 ..Zakariya & Shareefa
 ...~Hiba
 ..Aarifa & Majeed
-...~Fathima,Jaseel,Jasna
+...Jaseel & Sana
+...~Fathima,Jasna
 .Kunhikadeesu
 ..~Mammooty`;
